@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { IconButton } from "@mui/material";
-import Reply from "./Reply";
-import InsertReply from "./InsertReply";
+import { AppReply } from ".";
+import { AppInsertReply } from ".";
 import moment from "moment";
 
 const IndividualComment = (props) => {
@@ -69,7 +69,7 @@ const AssociatedReplies = (props) => {
           return (
             <div className="individual-reply-box" key={reply.replyId}>
               {reply.commentId === comment.commentId && (
-                <Reply reply={reply} setReplies={setReplies} />
+                <AppReply reply={reply} setReplies={setReplies} />
               )}
             </div>
           );
@@ -96,7 +96,7 @@ function Comment({ comments, replies, setReplies, setComments, asc }) {
                   setComments={setComments}
                 />
                 {showInsertReplyBox === comment.commentId && (
-                  <InsertReply
+                  <AppInsertReply
                     replies={replies}
                     setReplies={setReplies}
                     comment={comment}
@@ -128,7 +128,7 @@ function Comment({ comments, replies, setReplies, setComments, asc }) {
                     setComments={setComments}
                   />
                   {showInsertReplyBox === comment.commentId && (
-                    <InsertReply
+                    <AppInsertReply
                       replies={replies}
                       setReplies={setReplies}
                       comment={comment}

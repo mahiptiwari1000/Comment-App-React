@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import InsertComment from "./components/InsertComment";
-import Comment from "./components/Comment";
+import { AppInsertComment } from "./components";
+import { AppComment } from "./components";
 
 function App() {
   const [comments, setComments] = useState(
@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="main-wrapper">
-      <InsertComment comments={comments} setComments={setComments} />
+      <AppInsertComment comments={comments} setComments={setComments} />
       <div
         onClick={() => setAsc((prev) => !prev)}
         className="sort-date-and-time"
@@ -30,7 +30,7 @@ function App() {
         Sort By: Date and Time {asc ? "↓" : "↑"}
       </div>
       {comments !== [] && (
-        <Comment
+        <AppComment
           setComments={setComments}
           comments={comments}
           replies={replies}
